@@ -46,10 +46,7 @@ public class InscripcionControllerJPA {
 		return this.inscripcionService.getInscripciones();
 	}
 	
-	@PostMapping("/")
-	public Inscripcion newInscripcion(@RequestBody Inscripcion i) {
-		return inscripcionService.saveInscripcion(i);
-	}
+	
 	
 	@GetMapping("/{id}")
 	Optional<Inscripcion> getCarreraById(@PathVariable int id) {
