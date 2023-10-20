@@ -61,12 +61,17 @@ public class InscripcionService {
 	}
 
 	@Transactional
-	public Inscripcion matricular(int e, String c) {
-		Estudiante estudiante = estudianteRepository.findAllByNroLibreta(e);
-		Carrera carrera = carreraRepository.findByNombre(c);
+	public Inscripcion matricular(int e, int c) {
+		Optional<Estudiante> estudianteOptional = estudianteRepository.findById(e);
+		Optional<Carrera> carreraOptional = carreraRepository.findById(c);
+		if (carreraOptional.isEmpty() || estudianteOptional.isEmpty() ) {
+	        System.out.println("No se encontró la carrera con el ID especificado.");
+	    }
+		Estudiante estudiante = estudianteOptional.get();
+		Carrera carrera = carreraOptional.get();
 		Inscripcion i = new Inscripcion(estudiante, carrera, 2023, 2028, 5);
+
 		return this.inscripcionRepository.save(i);
-		
 	}
 
 	@Transactional
