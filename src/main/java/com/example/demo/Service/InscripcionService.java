@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.CarrerasPorInscriptosDTO;
-import com.example.demo.dto.EstudiantesPorCarrerayCiudadDTO;
+
 import com.example.demo.dto.ReporteCarrerasDTO;
 import com.example.demo.model.Carrera;
 import com.example.demo.model.Estudiante;
@@ -74,10 +74,7 @@ public class InscripcionService {
 		return this.inscripcionRepository.getCarrerasPorInscriptos();
 	}
 
-	@Transactional
-	public List<EstudiantesPorCarrerayCiudadDTO> estudiantesPorCarrerayCiudad(String ciudadResidencia, String carrera) {
-		return this.inscripcionRepository.estudiantesPorCarrerayCiudad(ciudadResidencia, carrera);
-	}
+	
 
 	public List<ReporteCarrerasDTO> reporteCarrerasInscriptosyAntiguedad() {
 		return this.inscripcionRepository.reporteCarrerasInsyAnt();

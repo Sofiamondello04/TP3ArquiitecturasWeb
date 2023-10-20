@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Service.EstudianteService;
+import com.example.demo.dto.EstudiantesPorCarrerayCiudadDTO;
 import com.example.demo.model.Estudiante;
 import com.example.demo.repository.EstudianteRepository;
 
@@ -97,5 +98,11 @@ public class EstudianteControllerJPA {
 		return repository.findAllByNombre(nombre);
 
 	}
+	
+	@GetMapping("/carrera/{carrera}/ciudad/{ciudadResidencia}")
+	public List<EstudiantesPorCarrerayCiudadDTO> estudiantesPorCarrerayCiudad(@PathVariable String ciudadResidencia,@PathVariable String carrera){
+		return this.estudianteService.estudiantesPorCarrerayCiudad(ciudadResidencia, carrera);
+    		  
+}
 
 }

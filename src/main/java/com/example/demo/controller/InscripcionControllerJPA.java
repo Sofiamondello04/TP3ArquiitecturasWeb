@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Service.InscripcionService;
 import com.example.demo.dto.CarrerasPorInscriptosDTO;
-import com.example.demo.dto.EstudiantesPorCarrerayCiudadDTO;
+
 import com.example.demo.dto.ReporteCarrerasDTO;
 import com.example.demo.model.Inscripcion;
 import com.example.demo.repository.InscripcionRepository;
@@ -87,11 +87,7 @@ public class InscripcionControllerJPA {
 		 return this.inscripcionService.getCarrerasPorCantidadInscriptos();
 	}
 	 
-	@GetMapping("/estudiantesPorCarrerayPorCiudad/{carrera}/{ciudadResidencia}")
-		public List<EstudiantesPorCarrerayCiudadDTO> estudiantesPorCarrerayCiudad(@PathVariable String ciudadResidencia,@PathVariable String carrera){
-			return this.inscripcionService.estudiantesPorCarrerayCiudad(ciudadResidencia, carrera);
-	    		  
-	}
+	
 	
 	@GetMapping("/reporteCarreras")
 	public List<ReporteCarrerasDTO> getReporteCarreras(){
